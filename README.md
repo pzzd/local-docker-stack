@@ -28,15 +28,21 @@ docker pull composer:2
 ```sh
 docker image build --no-cache -f images/Dockerfile-php-apache -t lamp .
 ```
-try this instead: 
-```
-docker run -d -p 80:80 lamp
-```
+
 
 ## Start the stack
 ```sh
 docker stack deploy -c docker-compose.yml dev
 ```
+
+try this instead: 
+
+put a web site at some dir, get the absolute path
+```
+docker run -d -p 80:80 -v [absolute path to my web site]:/var/www/html lamp
+```
+to stop
+docker stop psid
 
 ## Stop the stack
 ```sh
